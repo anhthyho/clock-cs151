@@ -1,0 +1,25 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javax.swing.*;
+public class ClockTester {
+	public static void main (String[] args){
+		JFrame frame = new JFrame();
+		frame.setSize(400, 400);
+		frame.add(new ClockPanel(), BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		final int DELAY = 100;
+		Timer t = new Timer(DELAY, new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				frame.repaint();
+			}
+		});
+		t.start();
+		frame.setVisible(true);
+	}
+}
